@@ -1,0 +1,124 @@
+- Role-based access control (RBAC) for users:
+- Admin
+- Student
+- Teacher
+- Staff
+- Parent
+- School Admin
+
+==> User Management
+User (id, username, email, password, role, mfaEnabled, createdAt)
+Role (id, roleName)
+
+==> School Management
+School (id, name, address, email, phoneNumber)
+Class (id, name, schoolId) ==> ya3ni l9ism mouch class fi code
+Section (id, name, classId)
+Subject (id, name, classId)
+
+
+
+==> Student Management
+Student (id, userId, schoolId, classId, sectionId, admissionDate)
+Attendance (id, studentId, date, status, recordedBy)
+ProgressReport (id, studentId, term, academicYear, comments)
+
+
+
+==> Teacher & Staff Management
+Teacher (id, userId, schoolId)
+TeacherAssignment (id, teacherId, subjectId, classId, sectionId)
+Staff (id, userId, schoolId, position)
+LeaveRequest (id, userId, startDate, endDate, reason, status)
+
+
+
+==> Parent & Communication
+Parent (id, userId)
+ParentStudent (id, parentId, studentId)
+
+
+
+
+==> Academic Management
+- Course (id, title, syllabus, classId, subjectId)
+- Exam (id, title, subjectId, examType, startTime, duration)
+- ExamResult (id, examId, studentId, score, grade)
+
+
+ ==> Finance & Fee Management :
+FeeStructure (id, schoolId, classId, term, amount)
+Invoice (id, studentId, dueDate, totalAmount, status)
+Payment (id, invoiceId, paymentDate, amount, paymentMethod, reference)
+Scholarship (id, studentId, type, amount, reason)
+
+******************************roles****************************************
+Here’s each table mapped to the roles that can **access** or **manage** it, based on your schema:  
+
+---
+
+### **User Management**  
+🔹 **Admin** (Full CRUD) | **School Admin** (Read-only for their school)  
+- **User** (`id, username, email, password, role, mfaEnabled, createdAt`)  
+- **Role** (`id, roleName`)  
+
+---
+
+### **School Management**  
+🔹 **Admin** (Full CRUD) | **School Admin** (Edit their own school only)  
+- **School** (`id, name, address, email, phoneNumber`)  
+- **Class** (`id, name, schoolId`)  
+- **Section** (`id, name, classId`)  
+- **Subject** (`id, name, classId`)  
+
+---
+
+### **Student Management**  
+🔹 **Admin** (Full) | **School Admin** (Their school) | **Teacher** (Their classes) | **Parent** (Their child) | **Student** (Self)  
+- **Student** (`id, userId, schoolId, classId, sectionId, admissionDate`)  
+- **Attendance** (`id, studentId, date, status, recordedBy`)  
+- **ProgressReport** (`id, studentId, term, academicYear, comments`)  
+
+---
+
+### **Teacher & Staff Management**  
+🔹 **Admin** (Full) | **School Admin** (Their school) | **Teacher/Staff** (Self)  
+- **Teacher** (`id, userId, schoolId`)  
+- **TeacherAssignment** (`id, teacherId, subjectId, classId, sectionId`)  
+- **Staff** (`id, userId, schoolId, position`)  
+- **LeaveRequest** (`id, userId, startDate, endDate, reason, status`)  
+
+---
+
+### **Parent & Communication**  
+🔹 **Admin** (Full) | **School Admin** (Their school) | **Parent** (Their linked students)  
+- **Parent** (`id, userId`)  
+- **ParentStudent** (`id, parentId, studentId`)  
+
+---
+
+### **Academic Management**  
+🔹 **Admin** (Full) | **School Admin** (Their school) | **Teacher** (Their subjects) | **Student/Parent** (Read-only)  
+- **Course** (`id, title, syllabus, classId, subjectId`)  
+- **Exam** (`id, title, subjectId, examType, startTime, duration`)  
+- **ExamResult** (`id, examId, studentId, score, grade`)  
+
+---
+
+### **Finance & Fee Management**  
+🔹 **Admin** (Full) | **School Admin** (Their school) | **Parent/Student** (View invoices/payments)  
+- **FeeStructure** (`id, schoolId, classId, term, amount`)  
+- **Invoice** (`id, studentId, dueDate, totalAmount, status`)  
+- **Payment** (`id, invoiceId, paymentDate, amount, paymentMethod, reference`)  
+- **Scholarship** (`id, studentId, type, amount, reason`)  
+
+---
+
+### **Key Rules**:  
+1. **Admins** have full system access.  
+2. **School Admins** are restricted to their school’s data.  
+3. **Teachers** see only their assigned classes/subjects (`TeacherAssignment`).  
+4. **Parents** access only their linked students (`ParentStudent`).  
+5. **Students** view their own records (no edit rights).  
+
+Would you like to add granular permissions (e.g., "Teacher can create exams but not delete them")?
