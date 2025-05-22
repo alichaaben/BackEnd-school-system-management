@@ -12,8 +12,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/leave-requests")
+@RequestMapping("/leave-requests")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class LeaveRequestController {
 
     private final LeaveRequestService leaveRequestService;

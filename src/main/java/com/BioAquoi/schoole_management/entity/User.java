@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -31,9 +30,6 @@ public class User {
     
     @Column(nullable = false)
     private boolean mfaEnabled;
-    
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
     
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)

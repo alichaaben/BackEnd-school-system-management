@@ -1,6 +1,5 @@
 package com.BioAquoi.schoole_management.service.Impl;
 
-
 import com.BioAquoi.schoole_management.entity.User;
 import com.BioAquoi.schoole_management.Exceptions.EntityNotFoundException;
 import com.BioAquoi.schoole_management.Exceptions.DuplicateEntityException;
@@ -53,7 +52,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(User user) {
         User existingUser = findById(user.getId());
-        // Add update logic here
         return userRepo.save(existingUser);
     }
 

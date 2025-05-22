@@ -12,8 +12,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/payments")
+@RequestMapping("/payments")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class PaymentController {
 
     private final PaymentService paymentService;

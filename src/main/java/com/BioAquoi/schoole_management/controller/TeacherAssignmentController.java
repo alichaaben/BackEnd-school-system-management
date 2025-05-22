@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/teacher-assignments")
+@RequestMapping("/teacher-assignments")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class TeacherAssignmentController {
 
     private final TeacherAssignmentService assignmentService;

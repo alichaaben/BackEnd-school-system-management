@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sections")
+@RequestMapping("/sections")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class SectionController {
 
     private final SectionService sectionService;

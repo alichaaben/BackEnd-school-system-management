@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/class-divisions")
+@RequestMapping("/class-divisions")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ClassDivisionController {
 
         private final ClassDivisionService classDivisionService;

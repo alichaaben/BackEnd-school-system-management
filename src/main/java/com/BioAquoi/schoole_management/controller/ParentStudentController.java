@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/parent-students")
+@RequestMapping("/parent-students")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ParentStudentController {
 
     private final ParentStudentService parentStudentService;

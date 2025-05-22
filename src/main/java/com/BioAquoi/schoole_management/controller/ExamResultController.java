@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/exam-results")
+@RequestMapping("/exam-results")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ExamResultController {
 
     private final ExamResultService examResultService;

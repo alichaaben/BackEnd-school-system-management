@@ -12,8 +12,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/attendances")
+@RequestMapping("/attendances")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class AttendanceController {
 
         private final AttendanceService attendanceService;

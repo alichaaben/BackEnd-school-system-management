@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/parents")
+@RequestMapping("/parents")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ParentController {
 
     private final ParentService parentService;

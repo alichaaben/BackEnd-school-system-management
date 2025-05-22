@@ -12,7 +12,7 @@ Role (id, roleName)
 
 ==> School Management
 School (id, name, address, email, phoneNumber)
-Class (id, name, schoolId) ==> ya3ni l9ism mouch class fi code
+Class (id, name, schoolId)
 Section (id, name, classId)
 Subject (id, name, classId)
 
@@ -21,7 +21,6 @@ Subject (id, name, classId)
 ==> Student Management
 Student (id, userId, schoolId, classId, sectionId, admissionDate)
 Attendance (id, studentId, date, status, recordedBy)
-ProgressReport (id, studentId, term, academicYear, comments)
 
 
 
@@ -122,3 +121,10 @@ Here’s each table mapped to the roles that can **access** or **manage** it, ba
 5. **Students** view their own records (no edit rights).  
 
 Would you like to add granular permissions (e.g., "Teacher can create exams but not delete them")?
+
+1|ROLE_Admin       |
+2|ROLE_Parent      |
+3|ROLE_School_Admin|
+4|ROLE_Staff       |
+5|ROLE_Student     |
+6|ROLE_Teacher     |

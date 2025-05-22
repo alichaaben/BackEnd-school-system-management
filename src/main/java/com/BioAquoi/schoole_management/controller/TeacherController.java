@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/teachers")
+@RequestMapping("/teachers")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class TeacherController {
 
     private final TeacherService teacherService;
